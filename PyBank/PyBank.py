@@ -2,6 +2,8 @@
 import os
 import csv
 
+
+
 # Create path to read provided CSV file
 pybank_csv = os.path.join('..', 'PyBank', 'PyBank_Resources_budget_data.csv')
 
@@ -31,12 +33,25 @@ with open("pybank_Resources_budget_data.csv") as csv_file:
     reader = csv.DictReader(csv_file)
     total = sum(float(row["Profit/Losses"]) for row in reader)
 
-# Print analysis table
+    # Calculate the average change of the "Profit/Losses" column
+    avg_pl = round((total/num_rows),2)
+
+# Determine the greatest increase in profits (date and amount) over the entire period
+with open("pybank_Resources_budget_data.csv") as csv_file:
+    reader = csv.DictReader(csv_file)
+    max_pl = max(float(row["Profit/Losses"]) for row in reader)
+
+# Determine the greatest decrease in losses (date and amount) over the entire period
+with open("pybank_Resources_budget_data.csv") as csv_file:
+    reader = csv.DictReader(csv_file)
+    min_pl = min(float(row["Profit/Losses"]) for row in reader)
+
+# Print analysis table (with all calculate varaibles from above)
 print("")
 print('Financial Anlaysis')
 print('-----------------------------------')
 print('Total Months: ',num_rows) 
 print("Total: $" + format(str(total))+"0")
-
-
-        
+print("Average Change: $" + str(avg_pl))
+print("Greatest Increase in Profits: $" + str(max_pl) + "0")
+print("Greatest Decrease in Losses: $" + str(min_pl) + "0")
