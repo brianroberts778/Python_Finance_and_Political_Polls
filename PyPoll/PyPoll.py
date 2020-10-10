@@ -83,3 +83,20 @@ print(f"Li: {str(round(li_percent,2)*100)}% ({li_votes})")
 print(f"O'Tooley: {str(round(otooley_percent,3)*100)}00% ({otooley_votes})")
 print("------------------------------")
 print(f"Winner: {winner}")
+print("------------------------------")
+
+# Have code create/export a text file containing the analysis table when run
+pypoll_analysis = os.path.join('..', 'PyPoll', 'pypoll_analysis.txt')
+with open(pypoll_analysis, "w") as outfile:
+
+    outfile.write("Election Results\n")
+    outfile.write("------------------------------\n")
+    outfile.write(f"Total Votes: {str(All_Votes)}\n") 
+    outfile.write("------------------------------\n")
+    outfile.write(f"Khan: {str(round(khan_percent,3)*100)}00% ({khan_votes})\n")
+    outfile.write(f"Correy: {str(round(correy_percent,3)*100)}00% ({correy_votes})\n")
+    outfile.write(f"Li: {str(round(li_percent,2)*100)}% ({li_votes})\n")
+    outfile.write(f"O'Tooley: {str(round(otooley_percent,3)*100)}00% ({otooley_votes})\n")
+    outfile.write("------------------------------\n")
+    outfile.write(f"Winner: {winner}\n")
+    outfile.write("------------------------------\n")
