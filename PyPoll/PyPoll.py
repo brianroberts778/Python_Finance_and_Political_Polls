@@ -10,7 +10,6 @@ correy = []
 li = []
 otooley = []
 
-
 # Create path to read provided CSV file
 pypoll_csv = os.path.join('..','PyPoll', 'PyPoll_election_data.csv')
 
@@ -20,11 +19,9 @@ with open(pypoll_csv) as csvfile:
 
     # Specify delimiter and variable to hold contents
     csvreader = csv.reader(csvfile, delimiter=',')
-    #print(csvreader)
 
     # Read the header row first
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
 
     # Append columns (Omitted 'County' because it does not apply to our analysis)
     for column in csvreader:
@@ -63,20 +60,24 @@ with open(pypoll_csv) as csvfile:
     elif correy_percent > max(khan_percent, li_percent, otooley_percent):
         winner = "Correy"
     elif li_percent > max(khan_percent, correy_percent, otooley_percent):
-        winner = "li"
+        winner = "Li"
     else: 
-        winner = "otooley"
+        winner = "Otooley"
 
         # Determine the total numeber of votes received by each candidate
-        # khan_total = csv_candidates.count("Khan")
+        
 
     
         
 
 
 # Print Analysis Table
+print("")
 print("Election Results")
 print("------------------------------")
-print("Total Votes: " + str(All_Votes))
+print(f"Total Votes: {str(All_Votes)}")
 print("------------------------------")
-print(khan_votes, otooley_percent, winner)
+print(f"Khan: {khan_percent}% ({khan_votes})")
+print(f"Correy: {correy_percent}% ({correy_votes})")
+print(f"Li: {li_percent}% ({li_votes})")
+print(f"O'Tooley: {otooley_percent}% ({otooley_votes})")
