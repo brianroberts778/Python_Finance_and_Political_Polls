@@ -10,7 +10,7 @@ correy = []
 li = []
 otooley = []
 
-# Create path to read provided CSV file
+# Create path to read CSV file
 pypoll_csv = os.path.join('..','PyPoll', 'PyPoll_election_data.csv')
 
 
@@ -31,6 +31,8 @@ with open(pypoll_csv) as csvfile:
     # Calculate the total number of votes cast
     All_Votes = len(csv_votes)
 
+    # Create a for loop that contains a conditional, which will run through the dataset...
+    # ...and extract the amount of times each candidate received a vote
     for candidate in csv_candidates:
 
         if candidate == "Khan":
@@ -49,12 +51,14 @@ with open(pypoll_csv) as csvfile:
             otooley.append(csv_candidates)
             otooley_votes = len(otooley)
 
-    # Percent
+    # Use the total votes and the amount of votes each candidate received above...
+    # ...to determine the percentage of total votes each candidate received
     khan_percent = (khan_votes)/(All_Votes)
     correy_percent = (correy_votes)/(All_Votes)
     li_percent = (li_votes)/(All_Votes)
     otooley_percent = (otooley_votes)/(All_Votes)
 
+    # Create a confitional to determine the winner of the election based on percentages from above
     if khan_percent > max(correy_percent, li_percent, otooley_percent):
         winner = "Khan"
     elif correy_percent > max(khan_percent, li_percent, otooley_percent):
@@ -64,23 +68,17 @@ with open(pypoll_csv) as csvfile:
     else: 
         winner = "Otooley"
 
-        # Determine the total numeber of votes received by each candidate
-        
-
     
-        
-
-
 # Print Analysis Table
 print("")
 print("Election Results")
 print("------------------------------")
 print(f"Total Votes: {str(All_Votes)}")
 print("------------------------------")
-print(f"Khan: {str(round(khan_percent,3)*100)}00% ({khan_votes})")
-print(f"Correy: {str(round(correy_percent,3)*100)}00% ({correy_votes})")
-print(f"Li: {str(round(li_percent,2)*100)}% ({li_votes})")
-print(f"O'Tooley: {str(round(otooley_percent,3)*100)}00% ({otooley_votes})")
+print(f"Khan: {str(round(khan_percent,3)*100)}% ({khan_votes})")
+print(f"Correy: {str(round(correy_percent,3)*100)}% ({correy_votes})")
+print(f"Li: {str(round(li_percent,3)*100)}% ({li_votes})")
+print(f"O'Tooley: {str(round(otooley_percent,3)*100)}% ({otooley_votes})")
 print("------------------------------")
 print(f"Winner: {winner}")
 print("------------------------------")
@@ -95,7 +93,7 @@ with open(pypoll_analysis, "w") as outfile:
     outfile.write("------------------------------\n")
     outfile.write(f"Khan: {str(round(khan_percent,3)*100)}00% ({khan_votes})\n")
     outfile.write(f"Correy: {str(round(correy_percent,3)*100)}00% ({correy_votes})\n")
-    outfile.write(f"Li: {str(round(li_percent,2)*100)}% ({li_votes})\n")
+    outfile.write(f"Li: {str(round(li_percent,3)*100)}% ({li_votes})\n")
     outfile.write(f"O'Tooley: {str(round(otooley_percent,3)*100)}00% ({otooley_votes})\n")
     outfile.write("------------------------------\n")
     outfile.write(f"Winner: {winner}\n")
