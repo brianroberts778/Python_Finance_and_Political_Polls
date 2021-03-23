@@ -1,5 +1,5 @@
-# python_challenge (PyBank + PyPoll)
-Two part challenge involving one script for analyzing financial records, and one for modernizing a rural towns vote counting process.
+# PyBank & PyPoll, Python Projects
+Two part project involving one script for analyzing financial records, and one for modernizing a rural town's vote counting process.
 
 PyBank: A script that analyzes a csv file pertaining to the Profit and Losses of an unamed company over a set of months. 
 The script intially imports a few modules pertaining to csv reading and writing and sets variable for late analyses. 
