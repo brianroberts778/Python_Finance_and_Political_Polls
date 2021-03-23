@@ -14,7 +14,7 @@ An index was used to find the months associated with the min and max P/L values.
 A set of print funcions produced the final analysis table. 
 Finally, the content of the analysis table was exported to a .txt file 
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PyPoll: A script intended to help a small rural town modernize its vote counting process.
 
